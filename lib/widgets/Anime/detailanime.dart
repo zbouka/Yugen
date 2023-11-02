@@ -153,6 +153,10 @@ class _DetailAnimeState extends State<DetailAnime> {
                   height: Get.size.height,
                   width: Get.size.width,
                   child: SingleChildScrollView(
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7a7b8aa (Removed "reverse" from SingleChildScrollView)
                     child: Column(
                       children: [
                         /// animeInfo - anime img, author, 3 button
