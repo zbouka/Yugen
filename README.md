@@ -1,4 +1,4 @@
-# yugen
+# Yugen
 
 An android app made using Flutter and Firebase,and it can be used to watch anime/manga, powered by additional features.
 
