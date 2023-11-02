@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "447227872283",
+    "firebase_url": "https://yugen-213cf-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "yugen-213cf",
+    "storage_bucket": "yugen-213cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447227872283:android:79aee854e9b9e13df2a4be",
+        "android_client_info": {
+          "package_name": "com.app.yugen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447227872283-glfkr708oimaq7m0fibll2nb4evhaktf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.yugen",
+            "certificate_hash": "9bfd5a2e735ffcc8a5b707f94473173cb75c024c"
+          }
+        },
+        {
+          "client_id": "447227872283-bcnhqo6uoc4pvrv2j3cetso3r6cbqugd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR64YPFpVg8awdvb11zWelbhx5XjDXwEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447227872283-bcnhqo6uoc4pvrv2j3cetso3r6cbqugd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "447227872283-7vdhlvp0s39vb87rmgamne7occfc1ubd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mio"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
