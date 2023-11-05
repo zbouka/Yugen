@@ -132,9 +132,9 @@ class EsLanguage implements BaseLanguage {
         'invalidMail': 'El email introducido no es valido, pruebe con otro',
         'recommended': 'Recomendados',
         'descriptionYugen':
-            'Yugen es una app con la que podras ver los ultimos animes y mangas de forma totalmente gratuita y sin anuncios. Ofrecemos tambien la opcion de descargarlos para verlos luego tanto por capitulos o de forma completa, puedes guardarlos en la lista de favoritos para no olvidarte tambien.',
+            'Yugen es una aplicación donde puedes disfrutar del contenido más reciente de anime y manga de forma gratuita, sin anuncios. Tiene la opción de transmitir o descargar episodios individuales o series completas según sus preferencias. Además, puede guardar sus títulos favoritos en una lista personal de favoritos, lo que le permitirá acceder a ellos fácilmente en cualquier momento.',
         'descriptionYugen2':
-            'Aparte de eso, contamos con un apartado de noticias en las que podras ver las ultimas novedades en el mundo del manga/anime, aparte de proporcionarte los mejores wallpapers para el movil. La animación de la pantalla de bienvenida es creada por Mahendra Bhunwal',
+            'También contamos con una sección de noticias donde podrás ver las últimas novedades relacionadas con manga, anime o incluso más. Además, te ofrecemos los mejores fondos de pantalla para tu teléfono. La animación de la pantalla de bienvenida fue creada por Mahendra Bhunwal, al igual que Camila Massetti creó la animación splash inicial. Por último, quiero señalar que no poseemos los derechos intelectuales de ninguno de los materiales de esta aplicación y NO alojamos ningún material, ya que todo es proporcionado por páginas web de terceros. Esos derechos pertenecen a los creadores originales de los artículos.',
         "noComments": "No hay comentarios",
         "noElements":
             'En estos momentos estamos haciendo un mantenimiento de la base de datos, disculpe las molestias.',
@@ -286,12 +286,12 @@ class EnLanguage implements BaseLanguage {
         'correct': 'Correct',
         'updateProfile':
             'Profile updated successfully, please log out and log back in to apply changes. If you have changed the email, an email has been sent to confirm it.',
-        'invalidMail': 'The mail introducid is not valid, please try another',
+        'invalidMail': 'The email entered is not valid, please try another',
         'recommended': 'Recommended',
         'descriptionYugen':
-            "Yugen is an app with which you can watch the latest anime and manga for free and without ads. We also offer the option to download them to see them later both by chapters or in full, you can save them in the favorites list so you don't forget too.",
+            "Yugen is an app where you can enjoy the latest anime and manga content for free, without any ads. You have the option to either stream or download individual episodes or complete series according to your preference. Additionally, you can save your favorite titles to a personal favorites list, allowing you to easily access them at any time.",
         "descriptionYugen2":
-            'We also have a news section where you can see the latest news in the world of manga / anime, apart from providing you with the best wallpapers for your phone. The splash screen animation has been created by Mahendra Bhunwal',
+            'We also have a news section where you can see the latest news related of manga, anime or even more. Moreover, we are offering you with the best wallpapers for your phone. The splash screen animation has been created by Mahendra Bhunwal, just like the initial splash animation was created by Camila Massetti. Lastly, I want to point out that we don´t own the intellectual rights to any of the materials in this app, and we DON´T host any material since all is provided by third-party webpages. Those rights belong to the original creators of the items.',
         "noComments": "No comments",
         "noElements":
             'We are currently doing database maintenance, sorry for the inconvenience.',
