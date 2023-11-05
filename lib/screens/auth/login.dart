@@ -142,7 +142,8 @@ class _LoginState extends State<Login> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         key: _formKey,
         child: Container(
-          width: double.infinity,
+          height: Get.height,
+          width: Get.width,
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.topCenter, colors: [
             Colors.purple.shade900,
@@ -154,8 +155,8 @@ class _LoginState extends State<Login> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const SizedBox(
-                  height: 80,
+                SizedBox(
+                  height: scaler.getHeight(10),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20),
@@ -163,7 +164,7 @@ class _LoginState extends State<Login> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       FadeInUp(
-                          duration: Duration(milliseconds: 1000),
+                          duration: const Duration(milliseconds: 1000),
                           child: Text(
                             'welcome1'.tr,
                             style: GoogleFonts.poppins(
@@ -174,7 +175,7 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: scaler.getHeight(4)),
                 Container(
                   decoration: BoxDecoration(
                       color: Preferences().getThemeMode() == ThemeMode.dark
@@ -188,10 +189,10 @@ class _LoginState extends State<Login> {
                     child: Wrap(
                       direction: Axis.horizontal,
                       alignment: WrapAlignment.center,
-                      runSpacing: 10,
+                      runSpacing: scaler.getHeight(1.5),
                       children: <Widget>[
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: scaler.getHeight(4),
                         ),
                         FadeInUp(
                           duration: const Duration(milliseconds: 1400),
@@ -251,8 +252,11 @@ class _LoginState extends State<Login> {
                                       fontSize: scaler.getTextSize(11)),
                                 ),
                               ),
-                            )
+                            ),
                           ],
+                        ),
+                        SizedBox(
+                          height: scaler.getHeight(10),
                         ),
                       ],
                     ),
