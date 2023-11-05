@@ -59,14 +59,21 @@ class MySearchDelegate extends SearchDelegate {
         stream: (query != "")
             ? FirebaseFirestore.instance
                 .collection(collection)
-                .where("title", isNotEqualTo: query.capitalizeFirst!)
-                .orderBy("title")
-                .startAt([
-                query.capitalizeFirst!,
-              ]).endAt([
-                '${query.capitalizeFirst!}\uf8ff',
-              ]).snapshots()
-            : FirebaseFirestore.instance.collection(collection).snapshots(),
+                .where(
+                  'title',
+                  isGreaterThanOrEqualTo: query.isEmpty ? 0 : query,
+                  isLessThan: query.isEmpty
+                      ? null
+                      : query.substring(0, query.length - 1) +
+                          String.fromCharCode(
+                            query.codeUnitAt(query.length - 1) + 1,
+                          ),
+                )
+                .snapshots()
+            : FirebaseFirestore.instance
+                .collection(collection)
+                .limit(20)
+                .snapshots(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting &&
               snapshot.hasData != true) {
