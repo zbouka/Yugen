@@ -77,7 +77,7 @@ class Auth {
   }
 
   /// First it checks if the username exists using the [userCredential] credential and the [username] string
-  /// Then the new user is saved in our Users collection, saving only the username
+  /// Then the new user is saved in our Users collection
   void registerUser(UserCredential userCredential, username) async {
     if (await userExists(username, user: userCredential.user!) == true) {
       Get.off(() => const ChangeUsername());
@@ -110,7 +110,7 @@ class Auth {
     });
   }
 
-  /// Logins the user using email/password
+  /// Allows the user to login using email/password
   Future<UserCredential?> signIn(
       String email, String password, bool save) async {
     try {
@@ -151,7 +151,7 @@ class Auth {
     return null;
   }
 
-  /// Deletes the user with all the comments, ratings and the record in our collection
+  /// Deletes the user including all the comments, ratings and the user record in our collection
   Future deleteUser() async {
     try {
       QuerySnapshot<Map<String, dynamic>> commentsManga =
