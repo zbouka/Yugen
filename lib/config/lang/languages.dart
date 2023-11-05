@@ -40,6 +40,8 @@ class EsLanguage implements BaseLanguage {
         'PassIsRequired': 'Introduzca una contraseña de 8 o más caracteres',
         'forgotPass': '¿Has olvidado la contraseña?',
         'haveAccount': '¿Ya tienes una cuenta?',
+        "noElement":
+            "El elemento buscado no se encuentra en nuestra base de datos",
         'login': 'Iniciar sesión',
         'register': 'Registrarse',
         'googleRegister': 'Registrarse con Google',
@@ -156,6 +158,7 @@ class EsLanguage implements BaseLanguage {
         "noRecommended":
             "No hay recomendaciones en este feed por ahora, pero puede ser la primera persona en crear la primera 😊",
         "noWallpapers": "En este momento no hay ningun wallpaper disponible",
+        "noFavorites": "No hay ningun elemento en Favoritos",
         "accountDeleted": "Su cuenta ha sido eliminada de forma correcta",
         "videoNotValid":
             "Este video no se encuentra disponible en estos momentos, ¿Desea enviar un email para notificar del error?",
@@ -198,6 +201,8 @@ class EnLanguage implements BaseLanguage {
         'emailIsRequired': 'Email is missing',
         'PassIsRequired': 'Enter a password of 8 or more characters ',
         'forgotPass': 'Forgot your password?',
+        "noFavorites": "There aren´t any element in Favorites",
+        "noElement": "The searched item is not in our database",
         'login': 'Login',
         'register': 'Sign up',
         'googleRegister': 'Sign up with Google',
