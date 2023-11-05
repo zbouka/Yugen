@@ -71,15 +71,6 @@ class _ResetPassState extends State<ResetPass> {
   }
 
   _resetPassForm() {
-    checkFields() {
-      final form = _formKey.currentState!;
-      if (form.validate()) {
-        form.save();
-        return true;
-      }
-      return false;
-    }
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
