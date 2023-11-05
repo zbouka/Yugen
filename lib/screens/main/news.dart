@@ -39,10 +39,6 @@ class _NewsState extends State<News> {
               } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
                 List<Article> articles = snapshot.data!;
                 return SingleChildScrollView(
-<<<<<<< HEAD
-=======
-             
->>>>>>> 7a7b8aa (Removed "reverse" from SingleChildScrollView)
                   physics: const BouncingScrollPhysics(),
                   child: Center(
                     child: Column(
