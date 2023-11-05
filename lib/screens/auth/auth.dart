@@ -77,7 +77,7 @@ class Auth {
   }
 
   /// First it checks if the username exists using the [userCredential] credential and the [username] string
-  /// Then the new user is saved in our Users collections, saving only the username
+  /// Then the new user is saved in our Users collection, saving only the username
   void registerUser(UserCredential userCredential, username) async {
     if (await userExists(username, user: userCredential.user!) == true) {
       Get.off(() => const ChangeUsername());
