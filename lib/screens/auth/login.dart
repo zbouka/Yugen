@@ -86,7 +86,9 @@ class _LoginState extends State<Login> {
         _emailController.text = credentials[0];
         _passwordController.text = credentials[1];
       }
-    } catch (e) {}
+    } catch (e) {
+      sendErrorMail(true, "ERROR", e);
+    }
 
     return save;
   }
@@ -101,7 +103,7 @@ class _LoginState extends State<Login> {
         ? loading
             ? Container(
                 color: getCurrentColor(false),
-                child: Loading(),
+                child: const Loading(),
               )
             : welcomeWidget()
         : Scaffold(
@@ -152,18 +154,18 @@ class _LoginState extends State<Login> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       FadeInUp(
                           duration: Duration(milliseconds: 1000),
                           child: Text(
-                            "${'welcome1'.tr}",
+                            'welcome1'.tr,
                             style: GoogleFonts.poppins(
                               color: Colors.white,
                               fontSize: scaler.getTextSize(19),
@@ -172,7 +174,7 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
                       color: Preferences().getThemeMode() == ThemeMode.dark
@@ -188,35 +190,35 @@ class _LoginState extends State<Login> {
                       alignment: WrapAlignment.center,
                       runSpacing: 10,
                       children: <Widget>[
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         FadeInUp(
-                          duration: Duration(milliseconds: 1400),
+                          duration: const Duration(milliseconds: 1400),
                           child: emailWidget(),
                         ),
                         SizedBox(height: scaler.getHeight(2)),
                         FadeInUp(
-                          duration: Duration(milliseconds: 1400),
+                          duration: const Duration(milliseconds: 1400),
                           child: passwordWidget(),
                         ),
                         FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: rememberLogin()),
                         FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: forgotPass()),
                         SizedBox(
                           height: scaler.getHeight(5),
                         ),
                         FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: loginButton()),
                         SizedBox(
                           height: scaler.getHeight(4),
                         ),
                         FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: loginButtonGoogle()),
                         SizedBox(
                           height: scaler.getHeight(2),
@@ -225,7 +227,7 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FadeInUp(
-                              duration: Duration(milliseconds: 1600),
+                              duration: const Duration(milliseconds: 1600),
                               child: Text(
                                 'notAccount'.tr,
                                 style:
@@ -236,7 +238,7 @@ class _LoginState extends State<Login> {
                               width: scaler.getHeight(2),
                             ),
                             FadeInUp(
-                              duration: Duration(milliseconds: 1600),
+                              duration: const Duration(milliseconds: 1600),
                               child: InkWell(
                                 onTap: () {
                                   Get.to(() => const Register());
