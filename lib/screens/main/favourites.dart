@@ -127,9 +127,8 @@ class _FavoritesState extends State<Favorites> {
                   ),
                 );
               } else {
-                return const CustomErrorWidget(
-                    isError: false,
-                    errorMessage: "No hay ningun elemento en favoritos");
+                return CustomErrorWidget(
+                    isError: false, errorMessage: "noFavorites".tr);
               }
             }),
       ),
