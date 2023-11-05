@@ -169,7 +169,8 @@ class _RegisterState extends State<Register> {
 
   _registerform() {
     return Container(
-        width: double.infinity,
+        width: Get.width,
+        height: Get.height,
         decoration: BoxDecoration(
             gradient: LinearGradient(begin: Alignment.topCenter, colors: [
           Colors.purple.shade900,
@@ -185,68 +186,68 @@ class _RegisterState extends State<Register> {
                 height: scaler.getHeight(10),
               ),
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: FadeInUp(
-                    duration: Duration(milliseconds: 1000),
+                    duration: const Duration(milliseconds: 1000),
                     child: Text(
-                      "${'create1'.tr}",
+                      'create1'.tr,
                       style: GoogleFonts.poppins(
                         color: Colors.white,
                         fontSize: scaler.getTextSize(19),
                       ),
                     )),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: scaler.getHeight(4)),
               Container(
                 decoration: BoxDecoration(
                     color: Preferences().getThemeMode() == ThemeMode.dark
                         ? ThemeData.dark(useMaterial3: true).primaryColor
                         : Colors.white,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(60),
                         topRight: Radius.circular(60))),
                 child: Padding(
-                  padding: EdgeInsets.all(30),
+                  padding: const EdgeInsets.all(30),
                   child: Wrap(
                     direction: Axis.horizontal,
                     alignment: WrapAlignment.center,
                     runSpacing: 10,
                     children: <Widget>[
                       SizedBox(
-                        height: 20,
+                        height: scaler.getHeight(3),
                       ),
                       FadeInUp(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: emailWidget(),
                       ),
                       SizedBox(height: scaler.getHeight(2)),
                       FadeInUp(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: usernameWidget(),
                       ),
                       SizedBox(
-                        height: scaler.getHeight(2),
+                        height: scaler.getHeight(3),
                       ),
                       FadeInUp(
-                          duration: Duration(milliseconds: 1600),
+                          duration: const Duration(milliseconds: 1600),
                           child: passwordWidget()),
                       SizedBox(
-                        height: scaler.getHeight(2),
+                        height: scaler.getHeight(3),
                       ),
                       FadeInUp(
-                          duration: Duration(milliseconds: 1600),
+                          duration: const Duration(milliseconds: 1600),
                           child: passwordWidget2()),
                       SizedBox(
                         height: scaler.getHeight(10),
                       ),
                       FadeInUp(
-                          duration: Duration(milliseconds: 1600),
+                          duration: const Duration(milliseconds: 1600),
                           child: loginButton()),
                       SizedBox(
                         height: scaler.getHeight(2),
                       ),
                       FadeInUp(
-                          duration: Duration(milliseconds: 1600),
+                          duration: const Duration(milliseconds: 1600),
                           child: loginButtonGoogle()),
                       SizedBox(
                         height: scaler.getHeight(4),
@@ -255,16 +256,16 @@ class _RegisterState extends State<Register> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: Text('haveAccount'.tr,
                                 style: TextStyle(
                                     fontSize: scaler.getTextSize(11))),
                           ),
-                          const SizedBox(
-                            width: 5.0,
+                          SizedBox(
+                            width: scaler.getWidth(1),
                           ),
                           FadeInUp(
-                            duration: Duration(milliseconds: 1600),
+                            duration: const Duration(milliseconds: 1600),
                             child: InkWell(
                               onTap: () {
                                 Get.to(() => const Login(),
