@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:yugen/apis/email.dart';
 import 'package:yugen/assets/loading.dart';
 import 'package:yugen/config/preferences.dart';
@@ -24,6 +25,18 @@ class UserPreferences extends StatefulWidget {
 
 class _UserPreferencesState extends State<UserPreferences> {
   bool loading = false;
+  late PackageInfo packageInfo;
+  @override
+  void initState() {
+    super.initState();
+    PackageInfo.fromPlatform().then((value) => packageInfo = value);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return loading
@@ -95,8 +108,8 @@ class _UserPreferencesState extends State<UserPreferences> {
                         onTap: () {
                           showAboutDialog(
                             context: context,
-                            applicationName: "Yugen",
-                            applicationVersion: "1.0.0",
+                            applicationName: packageInfo.appName,
+                            applicationVersion: packageInfo.version,
                             children: <Widget>[
                               const SizedBox(
                                 height: 20,
