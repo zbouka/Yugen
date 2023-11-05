@@ -16,7 +16,7 @@ class MySearchBar extends StatefulWidget {
       {super.key, required this.collection, required this.collectionFavorites});
 
   @override
-  _MySearchBarState createState() => _MySearchBarState();
+  State<MySearchBar> createState() => _MySearchBarState();
 }
 
 class _MySearchBarState extends State<MySearchBar> {
@@ -76,9 +76,8 @@ class MySearchDelegate extends SearchDelegate {
           } else if (snapshot.hasData == false ||
               snapshot.data == null ||
               snapshot.data!.docs.isEmpty) {
-            return const CustomErrorWidget(
-                isError: false,
-                errorMessage: "No hay ningun resultado para la busqueda");
+            return CustomErrorWidget(
+                isError: false, errorMessage: "noElement".tr);
           } else {
             return Column(
               children: [
