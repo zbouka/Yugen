@@ -276,7 +276,6 @@ class _RegisterState extends State<Register> {
                                 style: TextStyle(
                                   color: Colors.deepPurple[400],
                                   fontSize: scaler.getTextSize(11),
-                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             ),

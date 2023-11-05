@@ -248,7 +248,6 @@ class _LoginState extends State<Login> {
                                   'signUp'.tr,
                                   style: TextStyle(
                                       color: Colors.deepPurple[400],
-                                      decoration: TextDecoration.underline,
                                       fontSize: scaler.getTextSize(11)),
                                 ),
                               ),
@@ -379,9 +378,9 @@ class _LoginState extends State<Login> {
             child: Text(
               'forgotPass'.tr,
               style: TextStyle(
-                  color: Colors.deepPurple[400],
-                  fontSize: scaler.getTextSize(11),
-                  decoration: TextDecoration.underline),
+                color: Colors.deepPurple[400],
+                fontSize: scaler.getTextSize(11),
+              ),
             ),
           ),
         ),
