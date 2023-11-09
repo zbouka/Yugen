@@ -45,25 +45,25 @@ class _WidgetListState extends State<WidgetList> {
       future: Future.wait([
         collection
             .orderBy("year", descending: true)
-            .limit(isTablet ? 10 : 5)
+            .limit(isTablet(context) ? 10 : 5)
             .get(),
         collection
             .orderBy("averageRating", descending: true)
-            .limit(isTablet ? 10 : 5)
+            .limit(isTablet(context) ? 10 : 5)
             .get(),
         collection
             .where("genres", arrayContains: "Action")
-            .limit(isTablet ? 10 : 5)
+            .limit(isTablet(context) ? 10 : 5)
             .get(),
         collection
             .orderBy("numberChapters", descending: true)
             .where("genres", arrayContains: "Drama")
-            .limit(isTablet ? 10 : 5)
+            .limit(isTablet(context) ? 10 : 5)
             .get(),
         collection
             .where("genres", arrayContains: "Mystery")
             .orderBy("year", descending: true)
-            .limit(isTablet ? 10 : 5)
+            .limit(isTablet(context) ? 10 : 5)
             .get(),
       ]),
       builder: (context, AsyncSnapshot<List<QuerySnapshot>> snapshot) {
