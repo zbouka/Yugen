@@ -154,8 +154,8 @@ class _MyCardState extends State<MyCard> {
               );
       },
       child: SizedBox(
-        height: 250,
-        width: 120,
+        height: scaler.getHeight(65),
+        width: scaler.getWidth(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -165,7 +165,8 @@ class _MyCardState extends State<MyCard> {
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   widget.img,
-                  width: 125,
+                  height: scaler.getHeight(65),
+                  width: scaler.getWidth(30),
                   errorBuilder: (context, error, stackTrace) {
                     //setState() not needed, because the widget doesn´t even build
                     miError = error;
