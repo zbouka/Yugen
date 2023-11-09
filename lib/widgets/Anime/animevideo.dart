@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:yugen/apis/email.dart';
+import 'package:yugen/helpers/check_device.dart';
 import '../../assets/loading.dart';
 
 /// Widget that shows the video using a video player
@@ -73,10 +74,15 @@ class _AnimeVideoState extends State<AnimeVideo> {
 
   @override
   void dispose() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
+    isTablet(context)
+        ? SystemChrome.setPreferredOrientations([
+            DeviceOrientation.landscapeLeft,
+            DeviceOrientation.landscapeRight,
+          ])
+        : SystemChrome.setPreferredOrientations([
+            DeviceOrientation.portraitUp,
+            DeviceOrientation.portraitDown,
+          ]);
 
     _chewieVideoPlayerController!.dispose();
     videoPlayerController!.dispose();
