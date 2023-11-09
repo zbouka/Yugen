@@ -84,14 +84,18 @@ class _MainWidgetState extends State<MainWidget> {
                             });
                           },
                           icon: (!isDarkTheme == false)
-                              ? const Icon(
-                                  Icons.wb_sunny,
+                              ? Icon(Icons.wb_sunny,
                                   color: Colors.yellow,
-                                )
-                              : const Icon(
-                                  Icons.nightlight_round,
+                                  size: MediaQuery.of(context).orientation ==
+                                          Orientation.landscape
+                                      ? ScreenScaler().getTextSize(11)
+                                      : null)
+                              : Icon(Icons.nightlight_round,
                                   color: Colors.black,
-                                ),
+                                  size: MediaQuery.of(context).orientation ==
+                                          Orientation.landscape
+                                      ? ScreenScaler().getTextSize(11)
+                                      : null),
                         ),
                       ),
                     ],
