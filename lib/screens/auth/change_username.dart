@@ -76,16 +76,16 @@ class _ChangeUsernameState extends State<ChangeUsername> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 80,
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 FadeInUp(
-                    duration: Duration(milliseconds: 1000),
+                    duration: const Duration(milliseconds: 1000),
                     child: Text(
                       "${'username1'.tr} ${'username2'.tr}",
                       style: GoogleFonts.poppins(
@@ -103,21 +103,21 @@ class _ChangeUsernameState extends State<ChangeUsername> {
                   color: Preferences().getThemeMode() == ThemeMode.dark
                       ? ThemeData.dark(useMaterial3: true).primaryColor
                       : Colors.white,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(60),
                       topRight: Radius.circular(60))),
               child: Padding(
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: Wrap(
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.center,
                   runSpacing: 10,
                   children: <Widget>[
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     FadeInUp(
-                      duration: Duration(milliseconds: 1400),
+                      duration: const Duration(milliseconds: 1400),
                       child: usernameWidget(),
                     ),
                     SizedBox(height: scaler.getHeight(2)),
@@ -125,7 +125,7 @@ class _ChangeUsernameState extends State<ChangeUsername> {
                       height: scaler.getHeight(2),
                     ),
                     FadeInUp(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: checkButton()),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
