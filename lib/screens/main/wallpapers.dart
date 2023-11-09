@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:yugen/config/preferences.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:yugen/apis/api_wallpaper.dart';
+import 'package:yugen/helpers/check_device.dart';
 import 'package:yugen/widgets/Recycled/externalProviders.dart';
 import 'package:yugen/widgets/Wallpapers/wallpaperimage.dart';
 
@@ -116,13 +117,17 @@ class _WallpapersState extends State<Wallpapers> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(12.0),
                                   child: AspectRatio(
-                                    aspectRatio: 2.0 / 3.0,
+                                    aspectRatio: isTablet(context)
+                                        ? 3.0 / 2.0
+                                        : 2.0 / 3.0,
                                     child: ExtendedImage.network(
                                       snapshot.data![index].wallpaper,
                                       clearMemoryCacheWhenDispose: true,
                                       clearMemoryCacheIfFailed: true,
-                                      cacheWidth:
-                                          200 * window.devicePixelRatio.ceil(),
+                                      cacheWidth: 200 *
+                                          View.of(context)
+                                              .devicePixelRatio
+                                              .ceil(),
 
                                       loadStateChanged: (state) {
                                         switch (state.extendedImageLoadState) {
