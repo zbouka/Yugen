@@ -1,4 +1,3 @@
-
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
@@ -116,9 +115,8 @@ class _WallpapersState extends State<Wallpapers> {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(12.0),
                                   child: AspectRatio(
-                                    aspectRatio: isTablet(context)
-                                        ? 3.0 / 2.0
-                                        : 2.0 / 3.0,
+                                    aspectRatio:
+                                        isTablet ? 3.0 / 2.0 : 2.0 / 3.0,
                                     child: ExtendedImage.network(
                                       snapshot.data![index].wallpaper,
                                       clearMemoryCacheWhenDispose: true,

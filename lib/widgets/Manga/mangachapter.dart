@@ -49,7 +49,7 @@ class MangaChapters extends StatelessWidget {
                       padding: const EdgeInsets.all(10.0),
                       child: Text("${"chapter".tr} ${index + 1}",
                           style: TextStyle(
-                              fontSize: ScreenScaler().getTextSize(8))),
+                              fontSize: ScreenScaler().getTextSize(8.5))),
                     ),
                     Row(
                       children: [

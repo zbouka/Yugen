@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:yugen/helpers/check_device.dart';
 import 'package:yugen/screens/main/manga.dart';
 import 'package:yugen/widgets/Recycled/error.dart';
 import '../screens/main/preferences.dart';
@@ -85,7 +86,10 @@ class MyNavigationBarState extends State<MyNavigationBar> {
                   inactiveColor: greyColor,
                   title: Text(
                     "Mangas",
-                    style: TextStyle(fontSize: ScreenScaler().getTextSize(6.5)),
+                    style: TextStyle(
+                        fontSize: isTablet
+                            ? ScreenScaler().getTextSize(8)
+                            : ScreenScaler().getTextSize(6.5)),
                   ),
                 ),
                 FlashyTabBarItem(
@@ -93,7 +97,10 @@ class MyNavigationBarState extends State<MyNavigationBar> {
                       size: ScreenScaler().getHeight(1.25)),
                   title: Text(
                     "Animes",
-                    style: TextStyle(fontSize: ScreenScaler().getTextSize(6.5)),
+                    style: TextStyle(
+                        fontSize: isTablet
+                            ? ScreenScaler().getTextSize(8)
+                            : ScreenScaler().getTextSize(6.5)),
                   ),
                   activeColor: purpleColor,
                   inactiveColor: greyColor,
@@ -103,7 +110,10 @@ class MyNavigationBarState extends State<MyNavigationBar> {
                       size: ScreenScaler().getHeight(1.25)),
                   title: Text(
                     "news".tr,
-                    style: TextStyle(fontSize: ScreenScaler().getTextSize(6.5)),
+                    style: TextStyle(
+                        fontSize: isTablet
+                            ? ScreenScaler().getTextSize(8)
+                            : ScreenScaler().getTextSize(6.5)),
                   ),
                   activeColor: purpleColor,
                   inactiveColor: greyColor,
@@ -113,7 +123,10 @@ class MyNavigationBarState extends State<MyNavigationBar> {
                       size: ScreenScaler().getHeight(1.25)),
                   title: Text(
                     "Wallpapers",
-                    style: TextStyle(fontSize: ScreenScaler().getTextSize(6.5)),
+                    style: TextStyle(
+                        fontSize: isTablet
+                            ? ScreenScaler().getTextSize(8)
+                            : ScreenScaler().getTextSize(6.5)),
                   ),
                   activeColor: purpleColor,
                   inactiveColor: greyColor,
@@ -146,10 +159,10 @@ class MyNavigationBarState extends State<MyNavigationBar> {
 
 //List of all Widget Screens
   final List<Widget> _buildScreens = [
-    const Manga(),
-    const Anime(),
+    const Center(child: Manga()),
+    const Center(child: Anime()),
     const Center(child: News()),
-    const Wallpapers(),
+    const Center(child: Wallpapers()),
     const UserPreferences()
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screen_scaler/flutter_screen_scaler.dart';
 
 import '../Settings/icon_style.dart';
 import '../Settings/screen_util.dart';
@@ -49,12 +50,20 @@ class MySettingsItem extends StatelessWidget {
             ),
       title: Text(
         title,
-        style: titleStyle ?? const TextStyle(fontWeight: FontWeight.bold),
+        style: titleStyle ??
+            TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: ScreenScaler().getTextSize(7.5),
+            ),
         maxLines: 1,
       ),
       subtitle: Text(
         subtitle!,
-        style: subtitleStyle ?? TextStyle(color: color),
+        style: subtitleStyle ??
+            TextStyle(
+              color: color,
+              fontSize: ScreenScaler().getTextSize(6.9),
+            ),
         maxLines: 1,
       ),
       trailing: (trailing != null)

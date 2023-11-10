@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screen_scaler/flutter_screen_scaler.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:yugen/apis/email.dart';
@@ -56,7 +57,10 @@ class _UserPreferencesState extends State<UserPreferences> {
                         : null,
                     cardActionWidget: MySettingsItem(
                       icons: Icons.edit,
-                      titleStyle: const TextStyle(color: Colors.white),
+                      titleStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: ScreenScaler().getTextSize(7.5),
+                      ),
                       iconStyle: IconStyle(
                         withBackground: true,
                         borderRadius: 50,

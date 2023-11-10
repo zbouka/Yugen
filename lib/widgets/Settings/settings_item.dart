@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screen_scaler/flutter_screen_scaler.dart';
 import 'package:yugen/widgets/Settings/icon_style.dart';
 import 'package:yugen/widgets/Settings/screen_util.dart';
 
@@ -54,7 +55,11 @@ class SettingsItem extends StatelessWidget {
               ),
         title: Text(
           title,
-          style: titleStyle ?? const TextStyle(fontWeight: FontWeight.bold),
+          style: titleStyle ??
+              TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ScreenScaler().getTextSize(7.5),
+              ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),

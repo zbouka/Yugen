@@ -42,9 +42,12 @@ class AnimeChapters extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Text("${"chapter".tr} ${index + 1}",
-                          style: TextStyle(
-                              fontSize: ScreenScaler().getTextSize(8))),
+                      child: Text(
+                        "${"chapter".tr} ${index + 1}",
+                        style: TextStyle(
+                          fontSize: ScreenScaler().getTextSize(8.5),
+                        ),
+                      ),
                     ),
                     Row(children: <Widget>[
                       RawMaterialButton(

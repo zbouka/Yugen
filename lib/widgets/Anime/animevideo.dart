@@ -74,7 +74,7 @@ class _AnimeVideoState extends State<AnimeVideo> {
 
   @override
   void dispose() {
-    isTablet(context)
+    isTablet
         ? SystemChrome.setPreferredOrientations([
             DeviceOrientation.landscapeLeft,
             DeviceOrientation.landscapeRight,
