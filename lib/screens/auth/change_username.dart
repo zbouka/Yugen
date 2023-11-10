@@ -130,7 +130,12 @@ class _ChangeUsernameState extends State<ChangeUsername> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('returnToLogin'.tr),
+                        Text(
+                          'returnToLogin'.tr,
+                          style: TextStyle(
+                            fontSize: ScreenScaler().getTextSize(7.3),
+                          ),
+                        ),
                         const SizedBox(
                           width: 5.0,
                         ),
@@ -234,7 +239,10 @@ class _ChangeUsernameState extends State<ChangeUsername> {
               onPressed: () => _usernameController.clear(),
               icon: const Icon(Ionicons.close),
             ),
-            label: Text('userName'.tr),
+            label: Text(
+              'userName'.tr,
+              style: TextStyle(fontSize: ScreenScaler().getTextSize(11)),
+            ),
           ),
           onChanged: (value) => username = value,
           validator: (username) => _validationMsg),
