@@ -350,7 +350,10 @@ class _LoginState extends State<Login> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text("rememberLogin".tr),
+        Text(
+          "rememberLogin".tr,
+          style: TextStyle(fontSize: ScreenScaler().getTextSize(7.2)),
+        ),
         SizedBox(
           width: scaler.getWidth(1),
         ),

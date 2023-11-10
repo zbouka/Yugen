@@ -144,7 +144,11 @@ class _ResetPassState extends State<ResetPass> {
                       children: [
                         FadeInUp(
                             duration: const Duration(milliseconds: 1600),
-                            child: Text('returnToLogin'.tr)),
+                            child: Text(
+                              'returnToLogin'.tr,
+                              style: TextStyle(
+                                  fontSize: ScreenScaler().getTextSize(7.3)),
+                            )),
                         const SizedBox(
                           width: 5.0,
                         ),
@@ -157,6 +161,7 @@ class _ResetPassState extends State<ResetPass> {
                             child: Text(
                               'return'.tr,
                               style: TextStyle(
+                                fontSize: ScreenScaler().getTextSize(7.3),
                                 color: Colors.deepPurple[400],
                                 decoration: TextDecoration.underline,
                               ),
