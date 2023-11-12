@@ -1,0 +1,9 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "dart",
+            "scheme": "file",
+            "pattern": "lib/screens/main/preferences.dart"
+        }
+    ]
+}
