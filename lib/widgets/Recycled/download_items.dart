@@ -50,7 +50,7 @@ writeFiles(String collectionName, String title, String lang, bool isManga,
   }
 }
 
-/// Here we download each chapter, verifying that the save path directory is free of any forbidden characters)
+/// Here we download each chapter, verifying that the save path directory is free of any forbidden characters
 Future<void> writeFilesChapter(
     String title, String lang, List<dynamic> chapters,
     {String? pathDir, int? chapter, required bool isManga}) async {
