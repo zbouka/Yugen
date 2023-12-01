@@ -69,7 +69,7 @@ dependencies:
   video_player: ^2.7.2
   animate_do: ^3.1.2
   flutter_secure_storage: ^9.0.0
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
 #dependency_overrides:
 #  photo_view:
 #    git:
