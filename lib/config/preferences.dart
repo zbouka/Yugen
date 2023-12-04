@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 /// Class for storing/reading cache in the phone using persistent key/value storage
 class Preferences {
-  static final _getStorage = GetStorage();
+  static final _getStorage = GetStorage("storage");
   final themeKey = "isDarkMode";
   final firstSeen = "firstSeen";
   final androidDialog = "androidDialog";
@@ -28,7 +28,8 @@ class Preferences {
 
   /// Get the string of the locale
   String getLocale() {
-    return _getStorage.read(localeKey) ?? Get.deviceLocale!.languageCode;
+    return _getStorage.read(localeKey) ??
+        WidgetsBinding.instance.platformDispatcher.locale.languageCode;
   }
 
   /// Saves the actual theme mode using the [isDarkMode] boolean
