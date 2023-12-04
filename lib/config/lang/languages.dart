@@ -170,8 +170,7 @@ class EsLanguage implements BaseLanguage {
         "noNews":
             "Ha ocurrido un error con las noticias y no se pueden mostrar",
         "noInternet": "No hay ninguna conexión a Internet en este momento",
-        "notAvailable":
-            "El capitúlo @numCap ya no se encuentra disponible. ¿Quiere reportarlo?",
+        "notAvailable": "El capitúlo @numCap ya no se encuentra disponible.",
         "invalidProvider":
             "Este correo electronico esta registrado con un proveedor externo, asi que no podemos cambiar la contraseña",
         "noPassword":
@@ -329,8 +328,7 @@ class EnLanguage implements BaseLanguage {
         "noNews":
             "There has been an error and it wont be possible to display any news",
         "noInternet": "There is no Internet connection in this moment",
-        "notAvailable":
-            "The chapter @numCap is no longer available, would you like to report it?",
+        "notAvailable": "The chapter @numCap is no longer available.",
         "invalidProvider":
             "This email is from an external provider, so we can´t change the password",
         "noPassword":
