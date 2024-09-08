@@ -7,8 +7,10 @@ Future<bool> getPermissionStatus(int permission) async {
   bool isStoragePermission = true;
   bool isPermission = true;
   bool isNotificationPermission = true;
+
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
   AndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;
+
   if (androidInfo.version.sdkInt >= 33) {
     if (permission == 1) {
       isPermission = await Permission.photos.status.isGranted;
@@ -21,31 +23,11 @@ Future<bool> getPermissionStatus(int permission) async {
     isStoragePermission = await Permission.storage.status.isGranted;
     isNotificationPermission = await Permission.notification.status.isGranted;
   }
+
   if (isStoragePermission && isPermission && isNotificationPermission) {
     return true;
   } else {
     return false;
-  }
-}
-
-/// Checks if permission is granted, if so it downloads the chapter
-Future<void> getChapters(String collectionName, String title, String lang,
-    bool isManga, bool isSingle,
-    {int? chapter, String? path, required List<dynamic> chapters}) async {
-  if (await getPermissionStatus(2) && await getPermissionStatus(3)) {
-    chapter != null
-        ? await writeFiles(collectionName, title, lang, isManga, isSingle,
-            chapter: chapter, chapters: chapters)
-        : await writeFiles(collectionName, title, lang, isManga, isSingle,
-            chapters: chapters);
-  } else {
-    if (await requestPermission(2) && await requestPermission(3)) {
-      chapter != null
-          ? await writeFiles(collectionName, title, lang, isManga, isSingle,
-              chapter: chapter, chapters: chapters)
-          : await writeFiles(collectionName, title, lang, isManga, isSingle,
-              chapters: chapters);
-    }
   }
 }
 
@@ -56,47 +38,56 @@ Future<bool> requestPermission(int permission) async {
   PermissionStatus? storage;
   PermissionStatus? perm;
   PermissionStatus? notification;
+
   if (androidInfo.version.sdkInt >= 33) {
     if (permission == 1) {
       perm = await Permission.photos.request();
-      if (perm.isGranted) {
-        return true;
-      } else {
-        return false;
-      }
+      return perm.isGranted;
     } else if (permission == 2) {
       perm = await Permission.videos.request();
-      if (perm.isGranted) {
-        return true;
-      } else {
-        return false;
-      }
+      return perm.isGranted;
     } else if (permission == 3) {
       notification = await Permission.notification.request();
-      if (notification.isGranted) {
-        return true;
-      } else {
-        return false;
-      }
+      return notification.isGranted;
     }
-    return false;
   } else {
     if (permission == 1 || permission == 2) {
       storage = await Permission.storage.request();
-
-      if (storage.isGranted) {
-        return true;
-      } else {
-        return false;
-      }
+      return storage.isGranted;
     } else if (permission == 3) {
       notification = await Permission.notification.request();
-      if (notification.isGranted) {
-        return true;
-      } else {
-        return false;
-      }
+      return notification.isGranted;
     }
-    return false;
+  }
+
+  return false;
+}
+
+/// Checks if permission is granted, if so it downloads the chapter
+Future<void> getChapters(String collectionName, String title, String lang,
+    bool isManga, bool isSingle,
+    {int? chapter, String? path, required List<dynamic> chapters}) async {
+  // Determine the required permission based on whether it's Manga (storage) or Anime (photos/videos)
+  int requiredPermission = isManga ? 1 : 2;
+
+  // Check if both necessary permissions (storage/photos/videos and notification) are granted
+  if (await getPermissionStatus(requiredPermission) &&
+      await getPermissionStatus(3)) {
+    // Download the chapter(s)
+    chapter != null
+        ? await writeFiles(collectionName, title, lang, isManga, isSingle,
+            chapter: chapter, chapters: chapters)
+        : await writeFiles(collectionName, title, lang, isManga, isSingle,
+            chapters: chapters);
+  } else {
+    // Request permissions if not already granted
+    if (await requestPermission(requiredPermission) &&
+        await requestPermission(3)) {
+      chapter != null
+          ? await writeFiles(collectionName, title, lang, isManga, isSingle,
+              chapter: chapter, chapters: chapters)
+          : await writeFiles(collectionName, title, lang, isManga, isSingle,
+              chapters: chapters);
+    }
   }
 }

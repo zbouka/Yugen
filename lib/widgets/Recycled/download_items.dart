@@ -14,6 +14,7 @@ extension FutureExtension<T> on Future<T> {
   }
 }
 
+/// Downloads and saves files for chapters (manga or anime)
 Future<void> writeFiles(
   String collectionName,
   String title,
@@ -56,7 +57,7 @@ Future<void> writeFiles(
   }
 }
 
-/// Downloads each chapter, verifying that the save path directory is free of forbidden characters
+/// Downloads each chapter (either manga or anime)
 Future<void> writeFilesChapter(
   String title,
   String lang,
@@ -73,7 +74,7 @@ Future<void> writeFilesChapter(
 
   Directory finalPath = Directory(
     '$path/$title ($lang)'.replaceAll(":", "-").replaceAll("|", "-") +
-        (chapter != null && isManga ? '/${'chapter'.tr} ${chapter + 1}' : ''),
+        (chapter != null && isManga ? '/${'Capitulo'.tr}${chapter + 1}' : ''),
   );
 
   if (!await finalPath.exists()) {
@@ -82,13 +83,22 @@ Future<void> writeFilesChapter(
 
   if (isManga) {
     for (int i = 0; i < chapters.length; i++) {
-      await downloadItem(
-        url: chapters[i],
-        savePath: finalPath.path,
-        title: title,
-        isManga: isManga,
-        number: (i + 1).toString(),
-      );
+      // Access and cast the "images" array from the map
+      List<dynamic> imagesDynamic = chapters[i]["images"]; // List<dynamic>
+      List<String> images =
+          imagesDynamic.cast<String>(); // Cast to List<String>
+
+      // Iterate over the images array and download each image
+      for (int j = 0; j < images.length; j++) {
+        var a = images[j];
+        await downloadItem(
+          url: images[j],
+          savePath: finalPath.path,
+          title: title,
+          isManga: isManga,
+          number: "${j + 1}",
+        );
+      }
     }
   } else {
     if (chapter != null) {
@@ -122,18 +132,19 @@ Future<void> downloadItem({
   required String number,
 }) async {
   try {
+    print('Starting download: $url'); // Log the URL
     await Future.delayed(
         const Duration(seconds: 1)); // Simulate delay if needed
     await FlutterDownloader.enqueue(
       url: url,
       savedDir: savePath,
       fileName: isManga ? "$number.jpg" : "$number.mp4",
-      showNotification:
-          true, // Show download progress in status bar (for Android)
-      openFileFromNotification:
-          true, // Click on notification to open downloaded file (for Android)
+      showNotification: true,
+      openFileFromNotification: true,
     );
+    print('Download complete: $number.jpg or $number.mp4'); // Log completion
   } catch (error) {
+    print('Download error: $error'); // Log any errors
     sendErrorMail(
       true,
       isManga ? "ERROR DOWNLOAD MANGA" : "ERROR DOWNLOAD ANIME",

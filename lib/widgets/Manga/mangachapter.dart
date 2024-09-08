@@ -55,10 +55,18 @@ class MangaChapters extends StatelessWidget {
                       children: [
                         RawMaterialButton(
                           textStyle: const TextStyle(color: Colors.blueGrey),
-                          onPressed: () async => await getChapters(
-                              "Mangas", mangaTitle, mangaLang, true, true,
-                              chapters: mangaChapters[index]["images"],
-                              chapter: index),
+                          onPressed: () async {
+                            await getChapters(
+                              "Mangas",
+                              mangaTitle,
+                              mangaLang,
+                              true, // isManga
+                              true, // isSingle
+                              chapters:
+                                  mangaChapters, // Pass the whole chapters list
+                              chapter: index, // Pass the chapter index
+                            );
+                          },
                           child: Icon(
                             Icons.file_download,
                             size: ScreenScaler().getTextSize(10),
@@ -77,7 +85,7 @@ class MangaChapters extends StatelessWidget {
                             Icons.error_outline,
                             size: ScreenScaler().getTextSize(10),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],

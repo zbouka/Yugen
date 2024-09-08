@@ -28,6 +28,7 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   final _auth = Auth();
   bool save = false;
+
   late ScreenScaler scaler;
   StreamSubscription? _connectionSubscription;
   bool isOffline = false;
@@ -35,7 +36,8 @@ class _LoginState extends State<Login> {
   String email = "", pass = "";
   bool loading = false;
   bool isInitialized = false;
-
+  bool _obscureText =
+      true; // State variable to manage visibility of the password
   @override
   void initState() {
     super.initState();
@@ -276,9 +278,26 @@ class _LoginState extends State<Login> {
         floatingLabelStyle: const TextStyle(height: 4),
         filled: true,
         prefixIcon: const Icon(Icons.password_outlined),
-        suffixIcon: IconButton(
-          onPressed: () => _passwordController.clear(),
-          icon: const Icon(Icons.close),
+        suffixIcon: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  _obscureText = !_obscureText; // Toggle password visibility
+                });
+              },
+              icon: Icon(
+                _obscureText
+                    ? Icons.visibility_outlined
+                    : Icons.visibility_off_outlined,
+              ),
+            ),
+            IconButton(
+              onPressed: () => _passwordController.clear(),
+              icon: const Icon(Icons.close),
+            ),
+          ],
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
@@ -289,7 +308,8 @@ class _LoginState extends State<Login> {
           style: TextStyle(fontSize: scaler.getTextSize(11)),
         ),
       ),
-      obscureText: true,
+      obscureText:
+          _obscureText, // Use the state variable to control password visibility
       onSaved: (newValue) => pass = newValue!,
       onChanged: (value) => pass = value,
       validator: (value) =>

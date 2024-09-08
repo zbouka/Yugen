@@ -82,6 +82,7 @@ dependencies:
   path: any
   collection: any
   translator: ^1.0.0
+  flutter_file_downloader: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
