@@ -8,7 +8,7 @@
 PRODUCT_NAME = yugen
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.app.yugen
+PRODUCT_BUNDLE_IDENTIFIER = app.zerotrigger.yugen
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 com.example. All rights reserved.

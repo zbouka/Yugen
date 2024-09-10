@@ -1,4 +1,4 @@
-package com.app.yugen
+package app.zerotrigger.yugen
 
 import io.flutter.embedding.android.FlutterActivity
 
