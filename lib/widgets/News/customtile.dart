@@ -144,7 +144,7 @@ Widget customListTile(Article article) {
               }
             },
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 40),
           FutureBuilder<String>(
             future: _getTranslation(article.description),
             builder: (context, snapshot) {
