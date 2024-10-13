@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+*.jks
 *.env
 env.g.dart
 lib/firebase_options.dart

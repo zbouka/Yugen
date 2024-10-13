@@ -26,12 +26,6 @@ Future<void> writeFiles(
 }) async {
   String? path = await FilePicker.platform.getDirectoryPath();
 
-  if (path == null) {
-    // Handle the case where the user cancels the directory selection
-    sendErrorMail(false, "ERROR", "No directory selected.");
-    return;
-  }
-
   try {
     if (isSingle) {
       final selectedChapters = isManga ? [chapters[chapter!]] : [chapters[0]];

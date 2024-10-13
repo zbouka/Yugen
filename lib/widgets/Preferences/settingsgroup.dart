@@ -40,7 +40,7 @@ class GroupSettings extends StatelessWidget {
               ? Padding(
                   padding: const EdgeInsets.only(bottom: 5),
                   child: Text(
-                    _settingsGroupTitle!,
+                    _settingsGroupTitle,
                     style: (_groupSettingsTitleStyle == null)
                         ? const TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold)

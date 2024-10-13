@@ -51,7 +51,7 @@ dependencies:
   url_launcher: ^6.1.6
   connectivity_plus: ^6.0.5
   file_picker: ^8.0.0  # Downgrade to resolve conflicts
-  device_info_plus: ^10.1.2
+  device_info_plus: ^11.0.0
   flutter_email_sender: ^6.0.2
   flutter_screen_scaler: ^2.1.0
   google_fonts: ^6.1.0
@@ -92,7 +92,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

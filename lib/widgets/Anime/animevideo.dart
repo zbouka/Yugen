@@ -24,39 +24,46 @@ class _AnimeVideoState extends State<AnimeVideo> {
   bool loading = false;
   late ChewieController? _chewieVideoPlayerController;
 
-  Future initialice() async {
-    videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(widget.animeVideo));
-    await videoPlayerController!.initialize();
-    setState(() {
-      loading = false;
-    });
-    videoPlayerController!.play();
-    videoPlayerController!.addListener(() {
-      if (videoPlayerController!.value.hasError) {
-        Get.back();
-        sendErrorMail(
-            true, "ERROR", videoPlayerController!.value.errorDescription!);
-      }
-    });
-    _chewieVideoPlayerController = ChewieController(
-      allowFullScreen: true,
-      zoomAndPan: true,
-      fullScreenByDefault: true,
-      deviceOrientationsAfterFullScreen: [
-        DeviceOrientation.portraitDown,
-        DeviceOrientation.portraitUp
-      ],
-      allowMuting: true,
-      allowPlaybackSpeedChanging: true,
-      deviceOrientationsOnEnterFullScreen: [
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight
-      ],
-      videoPlayerController: videoPlayerController!,
-      autoPlay: true,
-      looping: true,
-    );
+  Future<void> initialice() async {
+    try {
+      videoPlayerController =
+          VideoPlayerController.networkUrl(Uri.parse(widget.animeVideo));
+      await videoPlayerController!.initialize();
+      setState(() {
+        loading = false;
+      });
+      videoPlayerController!.play();
+      videoPlayerController!.addListener(() {
+        if (videoPlayerController!.value.hasError) {
+          // Log detailed error for debugging
+          sendErrorMail(true, "ERROR",
+              videoPlayerController!.value.errorDescription ?? "Unknown error");
+          Get.back();
+        }
+      });
+      _chewieVideoPlayerController = ChewieController(
+        allowFullScreen: true,
+        zoomAndPan: true,
+        fullScreenByDefault: true,
+        deviceOrientationsAfterFullScreen: [
+          DeviceOrientation.portraitDown,
+          DeviceOrientation.portraitUp
+        ],
+        allowMuting: true,
+        allowPlaybackSpeedChanging: true,
+        deviceOrientationsOnEnterFullScreen: [
+          DeviceOrientation.landscapeLeft,
+          DeviceOrientation.landscapeRight
+        ],
+        videoPlayerController: videoPlayerController!,
+        autoPlay: true,
+        looping: true,
+      );
+    } catch (e) {
+      // Send the caught error via email
+      sendErrorMail(true, "Initialization Error", e.toString());
+      Get.back(); // Return to the previous screen if initialization fails
+    }
   }
 
   @override
