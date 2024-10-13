@@ -38,8 +38,8 @@ Yugen is a Flutter-based Android application that allows users to read their fav
 
 ## Contact
 
-For any inquiries or feedback, please contact yourname@example.com.
+For any inquiries or feedback, please contact ztriggersupport@proton.me.
 
 ---
 
-Enjoy reading your favorite anime and manga with Yugen Reader!
+Enjoy reading your favorite anime and manga with Yugen!
