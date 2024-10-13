@@ -1,4 +1,4 @@
-# Yugen Reader
+# Yugen
 
 Yugen is a Flutter-based Android application that allows users to read their favorite anime and manga, stay updated with the latest news, change wallpapers, and save their preferences. Users can also log in to personalize their experience.
 
